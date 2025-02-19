@@ -67,8 +67,8 @@ LLMCostInquery$ sam local invoke llmcostinquery-Function --event events/event.js
 The SAM CLI can also emulate your application's API. Use the `sam local start-api` to run the API locally on port 3000.
 
 ```bash
-LLMCostInquery$ sam local start-api
-LLMCostInquery$ curl -X POST http://localhost:3000/LLMCostInquery
+LLMCostInquery$ sam local start-api --port 3001
+LLMCostInquery$ curl -X POST http://localhost:3001/LLMCostInquery
 ```
 
 The SAM CLI reads the application template to determine the API's routes and the functions that they invoke. The `Events` property on each function's definition includes the route and method for each path.
