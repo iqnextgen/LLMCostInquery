@@ -1,3 +1,5 @@
+![Screenshot 2025-02-19 at 12 23 54 PM](https://github.com/user-attachments/assets/50da2a8e-d782-4374-8e52-49e66c8950b2)
+
 # LLMCostInquery
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
