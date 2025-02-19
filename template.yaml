@@ -25,6 +25,10 @@ Resources:
     Properties:
       Name: "LLMCostInqueryApi" 
       StageName: !Ref Environment
+      Cors:  # Enables CORS when running locally
+        AllowMethods: "'POST, OPTIONS'"
+        AllowHeaders: "'Content-Type'"
+        AllowOrigin: "'*'"
   ServerLessFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -32,6 +36,17 @@ Resources:
       Architectures:
         - x86_64
       FunctionName: "LLMCostInqueryFunction"
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - Statement:
+            Effect: Allow
+            Action:
+              - "bedrock:InvokeModel"
+              - "ce:GetCostAndUsage"
+            Resource: "*"
+      Environment:
+        Variables:
+          BEDROCK_MODEL_ID: "anthropic.claude-v2"
       Events:
         EventApi:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api

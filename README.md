@@ -68,7 +68,7 @@ The SAM CLI can also emulate your application's API. Use the `sam local start-ap
 
 ```bash
 LLMCostInquery$ sam local start-api
-LLMCostInquery$ curl http://localhost:3000/
+LLMCostInquery$ curl -X POST http://localhost:3000/LLMCostInquery
 ```
 
 The SAM CLI reads the application template to determine the API's routes and the functions that they invoke. The `Events` property on each function's definition includes the route and method for each path.
